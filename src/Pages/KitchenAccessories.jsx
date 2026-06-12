@@ -45,16 +45,16 @@ const KitchenAccessories = () => {
             {
                 ProductsData.length == 0 ? <div>Loading...</div> :
 
-                    <div className="container">
+                    <div className="w-full px-4">
                         {/* Section Title */}
                         <div className=" mb-10 max-w-[600px] mx-4 my-1">
                             <h1 className="text-3xl font-semibold">Min. 50% off | Unique kitchen finds | Amazon Brands & more</h1>
                         </div>
                         <div className="relative">
                             {/* Products Carousel */}
-                            <div 
+                            <div
                                 ref={scrollRef}
-                                className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+                                className="flex justify-center overflow-x-scroll scrollbar-hide space-x-6 p-4"
                                 style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
                             >
                                 {ProductsData.map((data) => (

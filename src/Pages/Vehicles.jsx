@@ -47,7 +47,7 @@ const Vehicles = () => {
             {
                 ProductsData.length == 0 ? <div>Loading...</div> :
 
-                    <div className="container">
+                    <div className="w-full px-4">
                         {/* Section Title */}
                         <div className=" mb-10 max-w-[600px] mx-4 my-1">
                             <h3 className="text-3xl font-semibold">No cost EMI up to 24 months | Starting ₹4,433 INR/month</h3>
@@ -56,7 +56,7 @@ const Vehicles = () => {
                             {/* Products Carousel */}
                             <div
                                 ref={scrollRef}
-                                className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+                                className="flex justify-center overflow-x-scroll scrollbar-hide space-x-6 p-4"
                                 style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
                             >
                                 {ProductsData.map((data) => (
@@ -99,6 +99,3 @@ const Vehicles = () => {
 }
 
 export default Vehicles
-
-
-

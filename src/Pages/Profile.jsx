@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../components/firebase";
-import { removeUser } from "../utils/userSlice"; 
+import { removeUser } from "../Utils/userSlice";
 
 function Profile() {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaUserAlt, FaLock, FaEnvelope } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../Utils/userSlice";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../components/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";

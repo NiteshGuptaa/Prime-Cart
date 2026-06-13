@@ -45,17 +45,17 @@ const HomeDecoration = () => {
             {
                 ProductsData.length == 0 ? <div>Loading...</div> :
 
-                    <div className="container">
+                    <div className="w-full px-4">
 
                         <div className="relative">
                             {/* Section Title */}
                             <div className=" mb-2 max-w-[600px] mx-4 my-1">
                                 <h1 className="text-3xl font-semibold">Up to 50% off | Unique products from stores near you</h1>
-                            </div>s
+                            </div>
                             {/* Products Carousel */}
                             <div
                                 ref={scrollRef}
-                                className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+                                className="flex justify-center overflow-x-scroll scrollbar-hide space-x-6 p-4"
                                 style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
                             >
 

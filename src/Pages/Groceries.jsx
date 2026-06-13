@@ -47,7 +47,7 @@ const Groceries = () => {
             {
                 ProductsData.length == 0 ? <div>Loading...</div> :
 
-                    <div className="container">
+                    <div className="w-full px-4">
                         {/* Section Title */}
                         <div className=" mb-1 max-w-[800px] mx-auto">
                             <h1 className="text-3xl font-semibold">Fine your deaily requirements products here!</h1>
@@ -56,7 +56,7 @@ const Groceries = () => {
                             {/* Products Carousel */}
                             <div
                                 ref={scrollRef}
-                                className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+                                className="flex justify-center overflow-x-scroll scrollbar-hide space-x-6 p-4"
                                 style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
                             >
                                 {ProductsData.map((data) => (
@@ -99,4 +99,3 @@ const Groceries = () => {
 }
 
 export default Groceries
-

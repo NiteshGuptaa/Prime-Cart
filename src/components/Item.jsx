@@ -11,7 +11,34 @@ const Item = ({ product }) => {
     const userData = useSelector(store => store.userSlice.user);
     const navigate = useNavigate();
 
+    // tolerant selectors: try several common slice shapes
+    const cartItems = useSelector(store =>
+        store.cart?.items ??
+        store.cart?.cartItems ??
+        store.cartSlice?.items ??
+        store.cartSlice?.cartItems ??
+        []
+    );
+
+    const wishItems = useSelector(store =>
+        store.wishlist?.items ??
+        store.wishlist?.wishList ??
+        store.wishlistSlice?.items ??
+        store.wishList?.items ??
+        []
+    );
+
+    const isSame = (a, b) => {
+        if (a == null || b == null) return false;
+        // compare by id (string-safe)
+        return String(a) === String(b);
+    };
+
+    const inCart = Array.isArray(cartItems) && cartItems.some(i => isSame(i?.id ?? i?.productId ?? i?.product?.id, product?.id));
+    const inWishlist = Array.isArray(wishItems) && wishItems.some(i => isSame(i?.id ?? i?.productId ?? i?.product?.id, product?.id));
+
     const handleAddToCart = (item) => {
+        if (inCart) return; // already added
         if (userData) {
             dispatch(addItemToCart(item));
         } else {
@@ -20,6 +47,7 @@ const Item = ({ product }) => {
     };
 
     const handleAddToWishlist = (item) => {
+        if (inWishlist) return; // already added
         if (userData) {
             dispatch(addToWishList(item));
         } else {
@@ -56,22 +84,31 @@ const Item = ({ product }) => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex  flex-row text-xs  justify-evenly mt-4">
-                {/* Add to Cart Button */}
-                <button
-                    onClick={() => handleAddToCart(product)}
-                    className="bg-gray-600 text-white py-2 px-3 rounded-lg flex items-center gap-1 hover:bg-gray-700 transition duration-200"
-                >
-                    Add to <FaCartShopping className="text-sm" />
-                </button>
-
+            <div className="flex  flex-row text-xs  justify-center gap-4 mt-4">
                 {/* Add to Wishlist Button */}
                 <button
                     onClick={() => handleAddToWishlist(product)}
-                    className="bg-blue-500 text-white py-2 px-3 rounded-lg flex items-center gap-1 hover:bg-blue-600 transition duration-200"
+                    disabled={inWishlist}
+                    aria-disabled={inWishlist}
+                    className={`py-2 px-3 rounded-lg flex items-center gap-1 transition duration-200 ${
+                        inWishlist ? 'bg-green-600 text-white cursor-default' : 'bg-yellow-500 text-white hover:bg-yellow-700'
+                    }`}
                 >
-                    Add to <FaHeart className="text-sm" />
+                    {inWishlist ? 'Added to' : 'Add to'} <FaHeart className="text-sm" />
                 </button>
+
+                {/* Add to Cart Button */}
+                <button
+                    onClick={() => handleAddToCart(product)}
+                    disabled={inCart}
+                    aria-disabled={inCart}
+                    className={`py-2 px-3 rounded-lg flex items-center gap-1 transition duration-200 ${
+                        inCart ? 'bg-green-600 text-white cursor-default' : 'bg-blue-500 text-white hover:bg-blue-700'
+                    }`}
+                >
+                    {inCart ? 'Added to' : 'Add to'} <FaCartShopping className="text-sm" />
+                </button>
+
             </div>
         </div>
     );

@@ -81,11 +81,11 @@
 
 import React, { useState, useEffect } from 'react';
 import banner from '../assets/HeroBanner.jpg';
-import grocery from '../assets/grocery.jpeg';
-import smartPhones from '../assets/smartphones.jpeg';
-import furniture from '../assets/furniture.jpeg';
-import girlsTop from '../assets/girlsTop.jpeg';
-import smartphones from '../assets/smartphones.jpeg';
+// import grocery from '../assets/grocery.jpeg';
+// import smartPhones from '../assets/smartphones.jpeg';
+// import furniture from '../assets/furniture.jpeg';
+// import girlsTop from '../assets/girlsTop.jpeg';
+// import smartphones from '../assets/smartphones.jpeg';
 import mobileAccessories from '../assets/mobile-accessories.jpg';
 import { Link } from 'react-router-dom';
 
@@ -102,7 +102,8 @@ const BannerDetails = [
     id: 1,
     mainTitle: 'Grocery',
     subTitle: 'Get your daily essentials delivered to your doorstep',
-    imageUrl: grocery,
+    // imageUrl: grocery,
+    imageUrl: "https://plus.unsplash.com/premium_photo-1742244062866-6ade0780ec4b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzEzfHxncm9jZXJ5fGVufDB8fDB8fHww",
     link: '/category/groceries'
   },
   {
@@ -116,30 +117,26 @@ const BannerDetails = [
     id: 3,
     mainTitle: 'Classical Furniture',
     subTitle: 'Get the best deals on furniture',
-    imageUrl: furniture,
+    // imageUrl: furniture,
+    imageUrl: "https://media.istockphoto.com/id/1312439845/photo/stylish-living-room-interior-with-beautiful-house-plants.jpg?s=612x612&w=0&k=20&c=sUt6jSb1_MZFfymyFmuprGYmtz5XRoGtC2lUsnSr_y4=",
     link: '/category/furniture'
   },
   {
     id: 4,
     mainTitle: 'Girls Top',
     subTitle: 'Get the best deals on Girls Top',
-    imageUrl: girlsTop,
+    // imageUrl: girlsTop,
+    imageUrl: "https://media.istockphoto.com/id/2201051074/photo/a-young-woman-neatly-puts-stacks-of-knitted-clothes-into-a-metal-laundry-basket-the-concept.jpg?s=612x612&w=0&k=20&c=sOZRKkUX9ZNOxBX9d0nadgYYF28M8wXb5J9xZBRyCCo=",
     link: '/category/tops',
   },
   {
     id: 5,
     mainTitle: 'Smartphones',
     subTitle: 'Get the best deals on Smartphones',
-    imageUrl: smartphones,
+    // imageUrl: smartphones,
+    imageUrl: "https://plus.unsplash.com/premium_photo-1664201889947-ca672c9d4134?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bW9iaWxlJTIwc3RvcmV8ZW58MHx8MHx8fDA%3D",
     link: '/category/smartphones'
   },
-  {
-    id: 6,
-    mainTitle: 'Smartphones',
-    subTitle: 'Get the best deals on Smartphones',
-    imageUrl: smartPhones,
-    link: '/category/smartphones'
-  }
 ];
 
 const HeroBanner = () => {
@@ -148,7 +145,7 @@ const HeroBanner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBannerIndex((prevIndex) => (prevIndex + 1) % BannerDetails.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);

@@ -45,7 +45,7 @@ const Furnitures = () => {
             {
                 ProductsData.length == 0 ? <div>Loading...</div> :
 
-                    <div className="container">
+                    <div className="w-full px-4">
 
                         <div className="relative">
                             {/* Section Title */}
@@ -55,7 +55,7 @@ const Furnitures = () => {
                             {/* Products Carousel */}
                             <div
                                 ref={scrollRef}
-                                className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+                                className="flex justify-center overflow-x-scroll scrollbar-hide space-x-6 p-4"
                                 style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
                             >
 
@@ -97,4 +97,3 @@ const Furnitures = () => {
 }
 
 export default Furnitures
-

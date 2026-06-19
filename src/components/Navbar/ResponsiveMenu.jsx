@@ -40,11 +40,6 @@
 //                     </ul>
 //                 </nav>
 //             </div>
-//             <div className=''>
-//                 <h1>
-//                     Made with ❤️ by Abhishek Gupta
-//                 </h1>
-//             </div>
 //         </div>
 //     )
 // }
@@ -113,9 +108,6 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
                                 </ul>
                             </nav>
                         </div>
-                        <div className=''>
-                            <h1>Made with ❤️ by Abhishek Gupta</h1>
-                        </div>
                     </div>
                 </div>
             )}
@@ -124,4 +116,3 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
 };
 
 export default ResponsiveMenu;
-

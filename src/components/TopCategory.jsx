@@ -20,7 +20,7 @@ const ProductsData = [
     title: "Mens Fashion",
     rating: 4.5,
     color: "Red",
-    link:"mens-shirts",
+    link: "mens-shirts",
   },
   {
     id: 3,
@@ -90,20 +90,20 @@ const TopCategory = () => {
   };
 
   return (
-    <div className="mt-5 mb-6 relative">
-      <div className="container">
+    <div className="mt-5 mb-6 relative justify-center">
+      <div className="w-full px-4">
         <div className="text-center mb-2 max-w-[600px] mx-auto">
           <h1 className="text-3xl font-bold">Top Categories</h1>
         </div>
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex overflow-x-scroll scrollbar-hide space-x-6 p-4"
+            className="flex justify-center overflow-x-scroll scrollbar-hide space-x-12 p-4"
             style={{ scrollBehavior: "smooth", whiteSpace: "nowrap" }}
           >
             {ProductsData.map((data) => (
               <Link to={'/category/' + data.link} key={data.id}>
-                <div className="inline-block w-40">
+                <div className="inline-block w-160">
                   <img
                     src={data.img}
                     alt={data.title}
